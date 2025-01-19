@@ -16,15 +16,11 @@ end
 -- stylua: ignore
 local keys = {
    -- misc/useful --
-   { key = 'F1', mods = 'NONE', action = 'ActivateCopyMode' },
-   { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
-   { key = 'F3', mods = 'NONE', action = act.ShowLauncher },
-   { key = 'F4', mods = 'NONE', action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
-   {
-      key = 'F5',
-      mods = 'NONE',
-      action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
-   },
+   { key = 'F1',  mods = 'NONE',    action = 'ActivateCopyMode' },
+   { key = 'F2',  mods = 'NONE',    action = act.ActivateCommandPalette },
+   { key = 'F3',  mods = 'NONE',    action = act.ShowLauncher },
+   { key = 'F4',  mods = 'NONE',    action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
+   { key = 'F5',  mods = 'NONE',    action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }), },
    { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
    { key = 'F12', mods = 'NONE',    action = act.ShowDebugOverlay },
    { key = 'f',   mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
@@ -56,9 +52,16 @@ local keys = {
    -- copy/paste --
    { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
+   { key = 'Insert',     mods = 'CTRL',        action = act.CopyTo('Clipboard') },
+   { key = 'Insert',     mods = 'SHIFT',       action = act.PasteFrom('Clipboard') },
 
    -- tabs --
    -- tabs: spawn+close
+   { key = "1",          mods = mod.SUPER,     action = act.ActivateTab(0) },
+   { key = "2",          mods = mod.SUPER,     action = act.ActivateTab(1) },
+   { key = "3",          mods = mod.SUPER,     action = act.ActivateTab(2) },
+   { key = "4",          mods = mod.SUPER,     action = act.ActivateTab(3) },
+   { key = "5",          mods = mod.SUPER,     action = act.ActivateTab(4) },
    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
    { key = 't',          mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
    { key = 'w',          mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
