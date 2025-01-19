@@ -20,6 +20,7 @@ return {
 
    -- color scheme
    colors = colors,
+   color_scheme = 'Dracula (Official)',
 
    -- background
    background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
