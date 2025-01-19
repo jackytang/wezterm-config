@@ -22,7 +22,7 @@ return {
    colors = colors,
 
    -- background
-   background = backdrops:initial_options(true), -- set to true if you want wezterm to start on focus mode
+   background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
 
    -- scrollbar
    enable_scroll_bar = true,
@@ -39,10 +39,11 @@ return {
    window_padding = {
       left = 0,
       right = 0,
-      top = 10,
-      bottom = 7.5,
+      top = 0,
+      bottom = 0,
    },
    adjust_window_size_when_changing_font_size = false,
+   window_decorations = 'INTEGRATED_BUTTONS|RESIZE',
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
