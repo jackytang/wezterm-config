@@ -19,7 +19,7 @@ return {
    cursor_blink_rate = 650,
 
    -- color scheme
-   colors = colors,
+   -- colors = colors,
    color_scheme = 'Dracula (Official)',
 
    -- background
