@@ -19,7 +19,6 @@ return {
    cursor_blink_rate = 650,
 
    -- color scheme
-   -- colors = colors,
    color_scheme = 'Dracula (Official)',
 
    -- background
@@ -48,8 +47,7 @@ return {
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
-      -- font = fonts.font,
-      -- font_size = fonts.font_size,
+      font_size = 12,
    },
    -- inactive_pane_hsb = {
    --    saturation = 0.9,

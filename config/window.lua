@@ -5,8 +5,8 @@ local mux = wezterm.mux
 local window_config = {
     width_ratio = 0.4,  -- Percentage of screen width (0.0 to 1.0)
     height_ratio = 0.4, -- Percentage of screen height (0.0 to 1.0)
-    min_width = 2200,   -- Minimum window width in pixels
-    min_height = 1400   -- Minimum window height in pixels
+    min_width = 2560,   -- Minimum window width in pixels
+    min_height = 1600   -- Minimum window height in pixels
 }
 
 wezterm.on('gui-startup', function(cmd)
