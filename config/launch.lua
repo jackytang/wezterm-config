@@ -7,16 +7,25 @@ local options = {
 }
 
 if platform.is_win then
-   options.default_prog = { 'C:\\Users\\JackyTang\\scoop\\apps\\git\\current\\bin\\bash.exe' }
+   local git_bash = 'C:\\Users\\JackyTang\\scoop\\apps\\git\\current\\bin\\bash.exe'
+   local git_zsh = {
+      git_bash,
+      '--noprofile',
+      '--norc',
+      '/c/Users/JackyTang/.local/bin/git-zsh',
+   }
+
+   options.default_prog = git_zsh
    options.launch_menu = {
       { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
       { label = 'PowerShell Desktop', args = { 'powershell' } },
       { label = 'Command Prompt', args = { 'cmd' } },
       { label = 'Nushell', args = { 'nu' } },
       { label = 'Msys2', args = { 'ucrt64.cmd' } },
+      { label = 'Git Zsh', args = git_zsh },
       {
          label = 'Git Bash',
-         args = { 'C:\\Users\\JackyTang\\scoop\\apps\\git\\current\\bin\\bash.exe' },
+         args = { git_bash },
       },
    }
 elseif platform.is_mac then
