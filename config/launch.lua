@@ -7,15 +7,7 @@ local options = {
 }
 
 if platform.is_win then
-   local git_bash = 'C:\\Users\\JackyTang\\scoop\\apps\\git\\current\\bin\\bash.exe'
-   local git_zsh = {
-      git_bash,
-      '--noprofile',
-      '--norc',
-      '/c/Users/JackyTang/.local/bin/git-zsh',
-   }
-
-   options.default_prog = git_zsh
+   options.default_prog = { 'C:\\Users\\JackyTang\\scoop\\apps\\git\\current\\bin\\bash.exe', '-l' }
    options.launch_menu = {
       { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
       { label = 'PowerShell Desktop', args = { 'powershell' } },
