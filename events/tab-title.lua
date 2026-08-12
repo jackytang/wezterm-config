@@ -202,8 +202,16 @@ end
 
 ---@param proc string
 local function clean_process_name(proc)
-   local a = string.gsub(proc, '.*[/\\](.*)', '%1')
-   return a:gsub('%.exe$', '')
+   -- local a = string.gsub(proc, '.*[/\\](.*)', '%1')
+   -- return a:gsub('%.exe$', '')
+
+   local name = string.gsub(proc, '.*[/\\](.*)', '%1')
+   name = name:gsub('%.exe$', '')
+
+   -- Git for Windows 的 zsh-5.9.exe -> zsh
+   name = name:gsub('^zsh%-%d+%.?%d*$', 'zsh')
+
+   return name
 end
 
 ---@generic T
@@ -255,8 +263,42 @@ end
 local function create_title(process_name, base_title, max_width, inset)
    local title
 
-   if process_name:len() > 0 then
-      title = process_name .. ' ~ ' .. base_title
+   local shells = {
+      zsh = true,
+      bash = true,
+      sh = true,
+      fish = true,
+      pwsh = true,
+      powershell = true,
+   }
+
+   local function looks_like_path(s)
+      if s == '~' then
+         return true
+      end
+
+      return s:find('/') ~= nil
+         or s:find('\\') ~= nil
+         or s:match('^%.%.') ~= nil
+         or s:match('^%.%/') ~= nil
+   end
+
+   if shells[process_name] then
+      if looks_like_path(base_title) then
+         -- shell + 当前目录
+         title = process_name .. '  ' .. base_title
+      elseif base_title ~= '' and base_title ~= process_name then
+         -- nvim / herdr / pi / codex 等已经设置了 title
+         title = base_title
+      else
+         title = process_name
+      end
+   elseif process_name ~= '' then
+      if base_title ~= '' and base_title ~= process_name and not looks_like_path(base_title) then
+         title = base_title
+      else
+         title = process_name
+      end
    else
       title = base_title
    end

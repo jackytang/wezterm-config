@@ -28,7 +28,7 @@ local keys = {
    },
    { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
    { key = 'F12', mods = 'NONE',    action = act.ShowDebugOverlay },
-   { key = 'Enter', mods = 'SHIFT', action = act.SendKey({ key = 'j', mods = 'CTRL' }) },
+   -- { key = 'Enter', mods = 'SHIFT', action = act.SendKey({ key = 'j', mods = 'CTRL' }) },
    { key = 'f',   mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
    {
       key = 'u',
